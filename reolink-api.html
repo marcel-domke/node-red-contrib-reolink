@@ -18,8 +18,8 @@ limitations under the License.
 <!-- Node Definition -->
 <script type="text/javascript">
     RED.nodes.registerType('reolink-api', {
-        category: 'hardware',
-        color: '#DDAA99',
+        category: 'Security',
+        color: '#c0c0c0',
         defaults: {
             name: { value: "" },
             ip: { value: "", required: true },
@@ -31,9 +31,12 @@ limitations under the License.
         },
         inputs: 0,
         outputs: 1,
-        icon: "font-awesome/fa-camera",
+        icon: "font-awesome/fa-shield",
         label: function () {
-            return this.name || "Reolink API";
+            return this.name || "Reolink";
+        },
+        paletteLabel: function () {
+            return "Reolink";
         },
         oneditprepare: function () {
             // Pre-fill the fields with the node's current values
