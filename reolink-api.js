@@ -17,7 +17,7 @@ limitations under the License.
 // Allow self signed certificate
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
-module.exports = function(RED) {
+module.exports = function (RED) {
     function ReolinkApiNode(config) {
         RED.nodes.createNode(this, config);
 
@@ -28,9 +28,13 @@ module.exports = function(RED) {
 
         let token = null;
         let tokenRenewInterval = null;
-        let aiQueryInterval = null;
+        let queryInterval = null;
 
-        // Function to request the token
+        function errorHandle(errorMsg) {
+            node.status({ fill: "red", shape: "ring", text: `Error: ${errorMsg}` });
+        }
+
+        // Request the token
         async function requestToken() {
             try {
                 const response = await fetch(`https://${ip}/api.cgi?cmd=Login`, {
@@ -52,61 +56,64 @@ module.exports = function(RED) {
                 const data = await response.json();
                 if (data[0]?.value?.Token?.name) {
                     token = data[0].value.Token.name;
-                    node.status({ fill: "green", shape: "dot", text: "Token received" });
-
-                    // Clear previous interval and set up token renewal
-                    if (tokenRenewInterval) clearInterval(tokenRenewInterval);
-                    tokenRenewInterval = setInterval(requestToken, 30 * 60 * 1000); // Renew token every 30 minutes
+                    node.status({ fill: "green", shape: "dot", text: "Connected" });
                 } else {
-                    node.status({ fill: "red", shape: "ring", text: "Token error" });
+                    errorHandle("Received invalid token");
                 }
             } catch (error) {
-                node.status({ fill: "red", shape: "ring", text: `Error: ${error.message}` });
+                errorHandle("Connection failed");
             }
         }
 
-        // Function to query AI states
-        async function queryAiState() {
-            if (!token) {
-                node.status({ fill: "red", shape: "ring", text: "No token available" });
-                return;
-            }
-            try {
-                const response = await fetch(`https://${ip}/api.cgi?cmd=GetAiState&token=${token}`, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" }
-                });
-                const data = await response.json();
-                const aiStates = data[0]?.value;
-                if (aiStates) {
-                    node.send({
-                        payload: {
-                            ai: {
-                                people: aiStates.people.alarm_state,
-                                dog_cat: aiStates.dog_cat.alarm_state,
-                                vehicle: aiStates.vehicle.alarm_state
-                            }
-                        }
+        // Fetch specific data
+        async function queryCommand(command) {
+            if (token) {
+                try {
+                    const response = await fetch(`https://${ip}/api.cgi?cmd=${command}&token=${token}`, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" }
                     });
+                    const data = await response.json();
+                    return data;
+                } catch (error) {
+                    errorHandle(error.message);
                 }
-            } catch (error) {
-                node.status({ fill: "red", shape: "ring", text: `Error: ${error.message}` });
             }
+        }
+
+        // Fetch data and send to output
+        async function queryStates() {
+            mdState = await queryCommand("GetMdState");
+            aiStates = await queryCommand("GetAiState");
+        
+            if (aiStates) {
+                node.send({
+                    payload: {
+                        md: mdState[0]?.value,
+                        ai: aiStates[0]?.value
+                    }
+                });
+            }
+
         }
 
         // Initialize node
         (async () => {
+            node.status({ fill: "yellow", shape: "ring", text: "Connecting..." });
             await requestToken();
+            // Clear previous interval and set up token renewal
+            if (tokenRenewInterval) clearInterval(tokenRenewInterval);
+            tokenRenewInterval = setInterval(requestToken, 30 * 60 * 1000); // Renew token every 30 minutes
 
-            if (aiQueryInterval) clearInterval(aiQueryInterval);
-            aiQueryInterval = setInterval(queryAiState, 2 * 1000); // Query AI states every 2 seconds
+            if (queryInterval) clearInterval(queryInterval);
+            queryInterval = setInterval(queryStates, 2 * 1000); // Query AI states every 2 seconds
         })();
 
         node.on("close", () => {
-            token = null; 
+            token = null;
             //Clear intervals
             if (tokenRenewInterval) clearInterval(tokenRenewInterval);
-            if (aiQueryInterval) clearInterval(aiQueryInterval); 
+            if (queryInterval) clearInterval(queryInterval);
         });
     }
 
