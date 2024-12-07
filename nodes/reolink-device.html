@@ -17,7 +17,7 @@ limitations under the License.
 
 <!-- Node Definition -->
 <script type="text/javascript">
-    RED.nodes.registerType('reolink-camera', {
+    RED.nodes.registerType('reolink-device', {
         category: 'config',
         defaults: {
             name: { value: "" },
@@ -27,7 +27,7 @@ limitations under the License.
         },
 
         label: function () {
-            return this.name || "Reolink Camera";
+            return this.name || "Reolink Device";
         },
 
         oneditprepare: function () {
@@ -47,7 +47,7 @@ limitations under the License.
 </script>
 
 <!-- Edit Template -->
-<script type="text/html" data-template-name="reolink-camera">
+<script type="text/html" data-template-name="reolink-device">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Node name">

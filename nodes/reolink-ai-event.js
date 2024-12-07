@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 module.exports = function (RED) {
-    function ReolinkEventNode(config) {
+    function ReolinkAiEventNode(config) {
         RED.nodes.createNode(this, config);
 
         const node = this;
@@ -25,14 +25,10 @@ module.exports = function (RED) {
         // Fetch data and send to output
         async function queryStates() {
             try {
-                const mdState = await server.queryCommand("GetMdState");
                 const aiStates = await server.queryCommand("GetAiState");
-                if (aiStates && mdState) {
+                if (aiStates) {
                     node.send({
-                        payload: {
-                            md: mdState[0]?.value,
-                            ai: aiStates[0]?.value
-                        }
+                        payload: aiStates
                     });
                 }
                 node.status(server.connectionStatus);
@@ -55,5 +51,5 @@ module.exports = function (RED) {
         });
     }
 
-    RED.nodes.registerType("reolink-event", ReolinkEventNode);
+    RED.nodes.registerType("reolink-ai-event", ReolinkAiEventNode);
 };

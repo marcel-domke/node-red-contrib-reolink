@@ -18,7 +18,7 @@ limitations under the License.
 //process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 module.exports = function (RED) {
-    function ReolinkCameraNode(config) {
+    function ReolinkDeviceNode(config) {
         RED.nodes.createNode(this, config);
 
         const node = this;
@@ -96,5 +96,5 @@ module.exports = function (RED) {
     }
 
     // Register node
-    RED.nodes.registerType("reolink-camera", ReolinkCameraNode);
+    RED.nodes.registerType("reolink-device", ReolinkDeviceNode);
 };

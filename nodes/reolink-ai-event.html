@@ -17,46 +17,45 @@ limitations under the License.
 
 <!-- Node Definition -->
 <script type="text/javascript">
-    RED.nodes.registerType('reolink-event', {
+    RED.nodes.registerType('reolink-ai-event', {
         category: 'Reolink',
         color: '#c0c0c0',
         defaults: {
             name: { value: "" },
-            server: { value: "", type: "reolink-camera", required: true }
+            server: { value: "", type: "reolink-device", required: true }
         },
         inputs: 0,
         outputs: 1,
         icon: "font-awesome/fa-bullhorn",
         label: function () {
-            return this.name || "Reolink Event";
+            return this.name || "Reolink AI Event";
         },
         paletteLabel: function () {
-            return "Reolink Event";
+            return "AI Event";
         }
     });
 </script>
 
 <!-- Edit Template -->
-<script type="text/html" data-template-name="reolink-event">
+<script type="text/html" data-template-name="reolink-ai-event">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Node name">
     </div>
     <div class="form-row">
-        <label for="node-input-server"><i class="fa fa-wrench"></i> Camera</label>
+        <label for="node-input-server"><i class="fa fa-wrench"></i> Device</label>
         <select id="node-input-server"></select>
     </div>
 </script>
 
 <!-- Help Text -->
-<script type="text/html" data-help-name="reolink-event">
-    <p>The <b>Reolink API</b> event node allows you to retrieve AI and motion detection events from a Reolink camera.</p>
+<script type="text/html" data-help-name="reolink-ai-event">
+    <p>The <b>Reolink AI Event</b> node allows you to retrieve AI events from a Reolink device.</p>
     <h3>Outputs</h3>
     <dl class="message-properties">
         <dt>payload</dt>
-        <dd>An object containing the motion detection and AI states:</dd>
+        <dd>An object containing the AI states:</dd>
         <ul>
-            <li><code>md.state</code>: The motion detection state. A value of 0 indicates no motion detected, while 1 indicates motion detected.</li>
             <li><code>ai.channel</code>: The AI channel ID (usually 0 for a single camera).</li>
             <li><code>ai.dog_cat.alarm_state</code>: The alarm state for dog or cat detection. A value of 0 indicates no alarm, and 1 indicates an alarm.</li>
             <li><code>ai.dog_cat.support</code>: Indicates whether dog/cat detection is supported (1 means supported, 0 means not supported).</li>
@@ -69,6 +68,6 @@ limitations under the License.
         </ul>
     </dl>
     <h3>Details</h3>
-    <p>This node periodically queries the Reolink camera for motion detection and AI states, emitting the results as the message payload.</p>
-    <p>The query runs every 2 seconds and includes both motion detection status and AI event data.</p>
+    <p>This node periodically queries the Reolink device for motion detection and AI states, emitting the results as the message payload.</p>
+    <p>The query runs every 2 seconds and includes AI event data.</p>
 </script>
