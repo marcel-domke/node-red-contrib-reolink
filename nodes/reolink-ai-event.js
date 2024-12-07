@@ -21,15 +21,17 @@ module.exports = function (RED) {
         const node = this;
         const server = RED.nodes.getNode(config.server);
         node.queryTimeout = null;
+        node.lastAiStates = null;
 
         // Fetch data and send to output
         async function queryStates() {
             try {
                 const aiStates = await server.queryCommand("GetAiState");
-                if (aiStates) {
+                if (aiStates && JSON.stringify(aiStates) !== JSON.stringify(node.lastAiStates)) {
                     node.send({
                         payload: aiStates
                     });
+                    node.lastAiStates = aiStates;
                 }
                 node.status(server.connectionStatus);
             } catch (error) {
