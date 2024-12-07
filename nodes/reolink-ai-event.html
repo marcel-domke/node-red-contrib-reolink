@@ -53,18 +53,18 @@ limitations under the License.
     <p>The <b>Reolink AI Event</b> node allows you to retrieve AI events from a Reolink device.</p>
     <h3>Outputs</h3>
     <dl class="message-properties">
-        <dt>payload</dt>
+        <dt>payload[0].value</dt>
         <dd>An object containing the AI states:</dd>
         <ul>
-            <li><code>ai.channel</code>: The AI channel ID (usually 0 for a single camera).</li>
-            <li><code>ai.dog_cat.alarm_state</code>: The alarm state for dog or cat detection. A value of 0 indicates no alarm, and 1 indicates an alarm.</li>
-            <li><code>ai.dog_cat.support</code>: Indicates whether dog/cat detection is supported (1 means supported, 0 means not supported).</li>
-            <li><code>ai.face.alarm_state</code>: The alarm state for face detection. A value of 0 indicates no alarm, and 1 indicates an alarm.</li>
-            <li><code>ai.face.support</code>: Indicates whether face detection is supported (1 means supported, 0 means not supported).</li>
-            <li><code>ai.people.alarm_state</code>: The alarm state for person detection. A value of 0 indicates no alarm, and 1 indicates an alarm.</li>
-            <li><code>ai.people.support</code>: Indicates whether person detection is supported (1 means supported, 0 means not supported).</li>
-            <li><code>ai.vehicle.alarm_state</code>: The alarm state for vehicle detection. A value of 0 indicates no alarm, and 1 indicates an alarm.</li>
-            <li><code>ai.vehicle.support</code>: Indicates whether vehicle detection is supported (1 means supported, 0 means not supported).</li>
+            <li><code>channel</code>: The AI channel ID (usually 0 for a single camera).</li>
+            <li><code>dog_cat.alarm_state</code>: The alarm state for dog or cat detection. A value of 0 indicates no alarm, and 1 indicates an alarm.</li>
+            <li><code>dog_cat.support</code>: Indicates whether dog/cat detection is supported (1 means supported, 0 means not supported).</li>
+            <li><code>face.alarm_state</code>: The alarm state for face detection. A value of 0 indicates no alarm, and 1 indicates an alarm.</li>
+            <li><code>face.support</code>: Indicates whether face detection is supported (1 means supported, 0 means not supported).</li>
+            <li><code>people.alarm_state</code>: The alarm state for person detection. A value of 0 indicates no alarm, and 1 indicates an alarm.</li>
+            <li><code>people.support</code>: Indicates whether person detection is supported (1 means supported, 0 means not supported).</li>
+            <li><code>vehicle.alarm_state</code>: The alarm state for vehicle detection. A value of 0 indicates no alarm, and 1 indicates an alarm.</li>
+            <li><code>vehicle.support</code>: Indicates whether vehicle detection is supported (1 means supported, 0 means not supported).</li>
         </ul>
     </dl>
     <h3>Details</h3>

@@ -17,27 +17,27 @@ limitations under the License.
 
 <!-- Node Definition -->
 <script type="text/javascript">
-    RED.nodes.registerType('reolink-md-event', {
+    RED.nodes.registerType('reolink-alarm', {
         category: 'Reolink',
         color: '#c0c0c0',
         defaults: {
             name: { value: "" },
             server: { value: "", type: "reolink-device", required: true }
         },
-        inputs: 0,
-        outputs: 1,
-        icon: "font-awesome/fa-bullhorn",
+        inputs: 1,
+        outputs: 0,
+        icon: "font-awesome/fa-bell",
         label: function () {
-            return this.name || "Reolink Motion Event";
+            return this.name || "Reolink Alarm";
         },
         paletteLabel: function () {
-            return "Motion Event";
+            return "Alarm";
         }
     });
 </script>
 
 <!-- Edit Template -->
-<script type="text/html" data-template-name="reolink-md-event">
+<script type="text/html" data-template-name="reolink-alarm">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Node name">
@@ -49,17 +49,19 @@ limitations under the License.
 </script>
 
 <!-- Help Text -->
-<script type="text/html" data-help-name="reolink-md-event">
-    <p>The <b>Reolink Motion Event Node</b> allows you to retrieve motion detection events from a Reolink device.</p>
-    <h3>Outputs</h3>
+<script type="text/html" data-help-name="reolink-alarm">
+    <p>The <b>Reolink Alarm</b> node allows you to trigger an audio alarm on a Reolink device.</p>
+
+    <h3>Inputs</h3>
     <dl class="message-properties">
-        <dt>payload[0].value</dt>
-        <dd>An object containing the motion detection state:</dd>
+        <dt>payload</dt>
+        <dd>A number value indicating the number of times to play the alarm sound:</dd>
         <ul>
-            <li><code>state</code>: The motion detection state. A value of 0 indicates no motion detected, while 1 indicates motion detected.</li>
+            <li><code>1-9</code>: The alarm sound will play the specified number of times.</li>
         </ul>
     </dl>
+    <p>When an input message with an integer payload (between 1 and 9) is received, the node will send a command to the Reolink device to play the alarm sound that many times. The number represents the repeat times for the alarm sound.</p>
+
     <h3>Details</h3>
-    <p>This node periodically queries the Reolink device for motion detection, emitting the results as the message payload.</p>
-    <p>The query runs every 2 seconds and includes motion detection event data.</p>
+    <p>This node sends a command to the Reolink device to trigger an audio alarm. It can be controlled by providing an integer payload between 1 and 9, where the number indicates how many times the alarm should play.</p>
 </script>
