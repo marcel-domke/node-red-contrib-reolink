@@ -68,11 +68,12 @@ module.exports = function (RED) {
         }
 
         // Fetch specific data
-        async function queryCommand(command) {
-            if (node.token) {
+        async function queryCommand(command, requestBody=null) {
+            if (node.token != null) {
                 try {
                     const response = await fetch(`http://${node.ip}/api.cgi?cmd=${command}&token=${node.token}`, {
                         method: "POST",
+                        body: requestBody,
                         headers: { "Content-Type": "application/json" },
                     });
                     const data = await response.json();

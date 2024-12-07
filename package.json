@@ -27,7 +27,8 @@
     "nodes": {
       "reolink-device": "nodes/reolink-device.js",
       "reolink-ai-event": "nodes/reolink-ai-event.js",
-      "reolink-md-event": "nodes/reolink-md-event.js"
+      "reolink-md-event": "nodes/reolink-md-event.js",
+      "reolink-light": "nodes/reolink-light.js"
     }
   },
   "engines": {

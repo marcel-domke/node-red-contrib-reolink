@@ -1,0 +1,79 @@
+<!--
+Copyright 2024 Marcel Domke
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+
+<!-- Node Definition -->
+<script type="text/javascript">
+    RED.nodes.registerType('reolink-light', {
+        category: 'Reolink',
+        color: '#c0c0c0',
+        defaults: {
+            name: { value: "" },
+            server: { value: "", type: "reolink-device", required: true }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-lightbulb-o",
+        label: function () {
+            return this.name || "Reolink Light";
+        },
+        paletteLabel: function () {
+            return "Light";
+        }
+    });
+</script>
+
+<!-- Edit Template -->
+<script type="text/html" data-template-name="reolink-light">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Node name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-server"><i class="fa fa-wrench"></i> Device</label>
+        <select id="node-input-server"></select>
+    </div>
+</script>
+
+<!-- Help Text -->
+<script type="text/html" data-help-name="reolink-light">
+    <p>The <b>Reolink Light</b> node allows you to control and monitor the state of the white LED light on a Reolink device.</p>
+
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload</dt>
+        <dd>A boolean value to control the state of the white LED light:</dd>
+        <ul>
+            <li><code>true</code>: Turns the white LED light ON.</li>
+            <li><code>false</code>: Turns the white LED light OFF.</li>
+        </ul>
+    </dl>
+    <p>When an input message with a boolean payload (true or false) is received, the node will send the corresponding command to the Reolink device to turn the white LED light ON or OFF.</p>
+
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>payload</dt>
+        <dd>A boolean value indicating the state of the white LED light:</dd>
+        <ul>
+            <li><code>true</code>: The white LED light is ON.</li>
+            <li><code>false</code>: The white LED light is OFF.</li>
+        </ul>
+    </dl>
+    <p>The node periodically queries the Reolink device for the current state of the white LED light. If the state changes, it emits the updated state (true for ON, false for OFF) as the message payload.</p>
+
+    <h3>Details</h3>
+    <p>This node runs a query every 2 seconds to monitor the white LED light's state. You can also control the light by sending input messages with boolean values to toggle the light's state.</p>
+</script>
