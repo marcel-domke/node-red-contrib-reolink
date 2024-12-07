@@ -1,0 +1,189 @@
+[
+    {
+        "id": "19a980f6a075e1a9",
+        "type": "inject",
+        "z": "129ed4c56b411c49",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 650,
+        "y": 340,
+        "wires": [
+            [
+                "91e90ba2b02173f7"
+            ]
+        ]
+    },
+    {
+        "id": "917a847d39110375",
+        "type": "inject",
+        "z": "129ed4c56b411c49",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 650,
+        "y": 380,
+        "wires": [
+            [
+                "91e90ba2b02173f7"
+            ]
+        ]
+    },
+    {
+        "id": "3f5f6cc97b5bcf6f",
+        "type": "inject",
+        "z": "129ed4c56b411c49",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 650,
+        "y": 440,
+        "wires": [
+            [
+                "7eaba14b868e22c6"
+            ]
+        ]
+    },
+    {
+        "id": "7d3ae8172feef255",
+        "type": "debug",
+        "z": "129ed4c56b411c49",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1100,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "653f68275af5c8f7",
+        "type": "debug",
+        "z": "129ed4c56b411c49",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1100,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "753d58265c9a18ca",
+        "type": "debug",
+        "z": "129ed4c56b411c49",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1100,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "ea26d6b68fd9b29d",
+        "type": "reolink-md-event",
+        "z": "129ed4c56b411c49",
+        "name": "",
+        "server": "",
+        "x": 880,
+        "y": 200,
+        "wires": [
+            [
+                "7d3ae8172feef255"
+            ]
+        ]
+    },
+    {
+        "id": "4b98295b0bc87c4b",
+        "type": "reolink-ai-event",
+        "z": "129ed4c56b411c49",
+        "name": "",
+        "server": "",
+        "x": 860,
+        "y": 280,
+        "wires": [
+            [
+                "653f68275af5c8f7"
+            ]
+        ]
+    },
+    {
+        "id": "91e90ba2b02173f7",
+        "type": "reolink-light",
+        "z": "129ed4c56b411c49",
+        "name": "",
+        "server": "",
+        "x": 850,
+        "y": 360,
+        "wires": [
+            [
+                "753d58265c9a18ca"
+            ]
+        ]
+    },
+    {
+        "id": "7eaba14b868e22c6",
+        "type": "reolink-alarm",
+        "z": "129ed4c56b411c49",
+        "name": "",
+        "server": "",
+        "x": 860,
+        "y": 440,
+        "wires": []
+    }
+]
