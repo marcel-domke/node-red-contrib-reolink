@@ -24,7 +24,11 @@ module.exports = function (RED) {
 
         // Update status
         async function updateStatus() {
-            node.status(server.connectionStatus);
+            try {
+                node.status(server.connectionStatus);
+            } catch (error) {
+                node.status({ fill: "red", shape: "ring", text: `Error: Config Node` });
+            }
 
             // Set timeout to call updateStatus again
             node.updateTimeout = setTimeout(updateStatus, 2000);
