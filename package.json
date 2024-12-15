@@ -29,7 +29,8 @@
       "reolink-ai-event": "nodes/reolink-ai-event.js",
       "reolink-md-event": "nodes/reolink-md-event.js",
       "reolink-light": "nodes/reolink-light.js",
-      "reolink-alarm": "nodes/reolink-alarm.js"
+      "reolink-alarm": "nodes/reolink-alarm.js",
+      "reolink-siren": "nodes/reolink-siren.js"
     }
   },
   "engines": {

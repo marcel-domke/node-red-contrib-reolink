@@ -1,5 +1,93 @@
 [
     {
+        "id": "04e94ab435b12e91",
+        "type": "reolink-siren",
+        "z": "129ed4c56b411c49",
+        "name": "",
+        "server": "",
+        "x": 920,
+        "y": 800,
+        "wires": [
+            [
+                "0a57923cee060766"
+            ]
+        ]
+    },
+    {
+        "id": "0a57923cee060766",
+        "type": "debug",
+        "z": "129ed4c56b411c49",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1160,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "4f5fc6f767ed897e",
+        "type": "inject",
+        "z": "129ed4c56b411c49",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 710,
+        "y": 780,
+        "wires": [
+            [
+                "04e94ab435b12e91"
+            ]
+        ]
+    },
+    {
+        "id": "6c8cb785b1112b8d",
+        "type": "inject",
+        "z": "129ed4c56b411c49",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 710,
+        "y": 820,
+        "wires": [
+            [
+                "04e94ab435b12e91"
+            ]
+        ]
+    },
+    {
         "id": "19a980f6a075e1a9",
         "type": "inject",
         "z": "129ed4c56b411c49",
@@ -20,8 +108,8 @@
         "topic": "",
         "payload": "false",
         "payloadType": "bool",
-        "x": 650,
-        "y": 340,
+        "x": 710,
+        "y": 620,
         "wires": [
             [
                 "91e90ba2b02173f7"
@@ -49,8 +137,8 @@
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
-        "x": 650,
-        "y": 380,
+        "x": 710,
+        "y": 660,
         "wires": [
             [
                 "91e90ba2b02173f7"
@@ -78,8 +166,8 @@
         "topic": "",
         "payload": "1",
         "payloadType": "num",
-        "x": 650,
-        "y": 440,
+        "x": 710,
+        "y": 720,
         "wires": [
             [
                 "7eaba14b868e22c6"
@@ -98,8 +186,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1100,
-        "y": 200,
+        "x": 1160,
+        "y": 480,
         "wires": []
     },
     {
@@ -114,8 +202,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1100,
-        "y": 280,
+        "x": 1160,
+        "y": 560,
         "wires": []
     },
     {
@@ -130,8 +218,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1100,
-        "y": 360,
+        "x": 1160,
+        "y": 640,
         "wires": []
     },
     {
@@ -140,8 +228,8 @@
         "z": "129ed4c56b411c49",
         "name": "",
         "server": "",
-        "x": 880,
-        "y": 200,
+        "x": 940,
+        "y": 480,
         "wires": [
             [
                 "7d3ae8172feef255"
@@ -154,8 +242,8 @@
         "z": "129ed4c56b411c49",
         "name": "",
         "server": "",
-        "x": 860,
-        "y": 280,
+        "x": 920,
+        "y": 560,
         "wires": [
             [
                 "653f68275af5c8f7"
@@ -168,8 +256,8 @@
         "z": "129ed4c56b411c49",
         "name": "",
         "server": "",
-        "x": 850,
-        "y": 360,
+        "x": 910,
+        "y": 640,
         "wires": [
             [
                 "753d58265c9a18ca"
@@ -182,8 +270,8 @@
         "z": "129ed4c56b411c49",
         "name": "",
         "server": "",
-        "x": 860,
-        "y": 440,
+        "x": 920,
+        "y": 720,
         "wires": []
     }
 ]

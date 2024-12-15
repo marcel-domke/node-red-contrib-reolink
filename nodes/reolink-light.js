@@ -50,6 +50,9 @@ module.exports = function (RED) {
                         });
                     }
                 }
+                else {
+                    node.status(server.connectionStatus);
+                }
 
             } catch (error) {
                 console.warn("Error during query: ", error.message);

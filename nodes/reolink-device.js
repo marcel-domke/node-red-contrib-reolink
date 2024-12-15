@@ -28,6 +28,49 @@ module.exports = function (RED) {
         node.token = null;
         node.tokenRenewTimeout = null;
         node.connectionStatus = { fill: "yellow", shape: "ring", text: `Initializing...` };
+        node.ability = null;
+
+
+        // Fetch specific data
+        async function queryCommand(command, requestBody = null) {
+            if (node.token != null) {
+                try {
+                    const response = await fetch(`http://${node.ip}/api.cgi?cmd=${command}&token=${node.token}`, {
+                        method: "POST",
+                        body: requestBody,
+                        headers: { "Content-Type": "application/json" },
+                    });
+                    const data = await response.json();
+                    return data;
+                } catch (error) {
+                    console.warn(error.message);
+                }
+            }
+        }
+        node.queryCommand = queryCommand;
+
+
+        // Fetch and save system ability once
+        async function queryAbility() {
+            if (node.ability == null){
+                try {
+                    requestBody = JSON.stringify([
+                        {
+                            "cmd": "GetAbility",
+                            "param": {
+                                "User": {
+                                    "userName": "NULL"
+                                }
+                            }
+                        },
+                    ]);
+                    const data = await queryCommand("GetAbility", requestBody);
+                    node.ability = data;
+                } catch (error) {
+                    console.warn("Error during querying abilities: ", error.message);
+                }
+            }
+        }
 
 
         // Request the token
@@ -53,6 +96,7 @@ module.exports = function (RED) {
                 if (data[0]?.value?.Token?.name) {
                     node.token = data[0].value.Token.name;
                     node.connectionStatus = { fill: "green", shape: "dot", text: `Connected` };
+                    queryAbility();
                 } else {
                     console.warn("Received invalid token");
                     console.warn(data);
@@ -66,24 +110,6 @@ module.exports = function (RED) {
             // Set timeout to renew token
             node.tokenRenewTimeout = setTimeout(requestToken, 30 * 60 * 1000);
         }
-
-        // Fetch specific data
-        async function queryCommand(command, requestBody=null) {
-            if (node.token != null) {
-                try {
-                    const response = await fetch(`http://${node.ip}/api.cgi?cmd=${command}&token=${node.token}`, {
-                        method: "POST",
-                        body: requestBody,
-                        headers: { "Content-Type": "application/json" },
-                    });
-                    const data = await response.json();
-                    return data;
-                } catch (error) {
-                    console.warn(error.message);
-                }
-            }
-        }
-        node.queryCommand = queryCommand;
 
         requestToken();
 
