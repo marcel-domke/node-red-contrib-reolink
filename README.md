@@ -25,6 +25,12 @@ The **Reolink Device** node allows you to configure the connection to your Reoli
 5. **Reolink LED Control Node**  
    This node controls the white LED light of the camera and queries its status.
 
+6. **Reolink PTZ Patrol Node**  
+   This node allows you to control the PTZ (Pan-Tilt-Zoom) patrol function on a Reolink device. When activated, the camera will follow a pre-configured patrol pattern.  
+
+7. **Reolink PTZ Preset Node**  
+   This node controls and queries the PTZ (Pan-Tilt-Zoom) preset positions on a Reolink device. You can either set the camera to a specific preset position or retrieve a list of available preset positions from the device.  
+
 ## Compatibility
 
 Tested with the following Reolink cameras:
