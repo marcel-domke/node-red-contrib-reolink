@@ -1,0 +1,64 @@
+<!--
+Copyright 2024 Marcel Domke
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+
+<!-- Node Definition -->
+<script type="text/javascript">
+    RED.nodes.registerType('reolink-ptz-patrol', {
+        category: 'Reolink',
+        color: '#c0c0c0',
+        defaults: {
+            name: { value: "" },
+            server: { value: "", type: "reolink-device", required: true }
+        },
+        inputs: 1,
+        outputs: 0,
+        icon: "font-awesome/fa-map-marker",
+        label: function () {
+            return this.name || "Reolink PTZ Patrol";
+        },
+        paletteLabel: function () {
+            return "PTZ Patrol";
+        }
+    });
+</script>
+
+<!-- Edit Template -->
+<script type="text/html" data-template-name="reolink-ptz-patrol">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Node name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-server"><i class="fa fa-wrench"></i> Device</label>
+        <select id="node-input-server"></select>
+    </div>
+</script>
+
+<!-- Help Text -->
+<script type="text/html" data-help-name="reolink-ptz-patrol">
+    <p>The <b>Reolink PTZ Patrol</b> node allows you to control the PTZ (Pan-Tilt-Zoom) patrol function on a Reolink device. When activated, the camera will follow a pre-configured patrol pattern.</p>
+
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload</dt>
+        <dd>A boolean value to control the PTZ patrol function:</dd>
+        <ul>
+            <li><code>true</code>: Starts the PTZ patrol.</li>
+            <li><code>false</code>: Stops the PTZ patrol.</li>
+        </ul>
+    </dl>
+</script>

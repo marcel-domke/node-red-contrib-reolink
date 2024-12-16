@@ -30,7 +30,9 @@
       "reolink-md-event": "nodes/reolink-md-event.js",
       "reolink-light": "nodes/reolink-light.js",
       "reolink-alarm": "nodes/reolink-alarm.js",
-      "reolink-siren": "nodes/reolink-siren.js"
+      "reolink-siren": "nodes/reolink-siren.js",
+      "reolink-ptz-preset": "nodes/reolink-ptz-preset.js",
+      "reolink-ptz-patrol": "nodes/reolink-ptz-patrol.js"
     }
   },
   "engines": {

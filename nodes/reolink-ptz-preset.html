@@ -1,0 +1,76 @@
+<!--
+Copyright 2024 Marcel Domke
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+
+<!-- Node Definition -->
+<script type="text/javascript">
+    RED.nodes.registerType('reolink-ptz-preset', {
+        category: 'Reolink',
+        color: '#c0c0c0',
+        defaults: {
+            name: { value: "" },
+            server: { value: "", type: "reolink-device", required: true }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-map-marker",
+        label: function () {
+            return this.name || "Reolink PTZ Preset";
+        },
+        paletteLabel: function () {
+            return "PTZ Preset";
+        }
+    });
+</script>
+
+<!-- Edit Template -->
+<script type="text/html" data-template-name="reolink-ptz-preset">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Node name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-server"><i class="fa fa-wrench"></i> Device</label>
+        <select id="node-input-server"></select>
+    </div>
+</script>
+
+<!-- Help Text -->
+<script type="text/html" data-help-name="reolink-ptz-preset">
+    <p>The <b>Reolink PTZ Preset</b> node allows you to control and query the PTZ (Pan-Tilt-Zoom) preset positions on a Reolink device. You can either set the camera to a specific preset position or retrieve a list of available preset positions from the device.</p>
+
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload</dt>
+        <dd>The input payload can be one of two types:</dd>
+        <ul>
+            <li><b>Integer (Preset ID)</b>: Sends the camera to the specified preset position. The value must be an integer between 0 and 63 (inclusive), corresponding to a preset position ID.</li>
+            <li><b>Empty Payload (Query)</b>: When the payload is not an integer, the node will query the device to return a list of available preset positions.</li>
+        </ul>
+    </dl>
+    <p>When the input is a preset ID (an integer between 0 and 63), the node will send a command to move the camera to the specified position. If the input is an empty payload or any other non-integer value, the node will query the device to retrieve the available preset positions and send them as the output payload.</p>
+
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>payload</dt>
+        <dd>The output payload depends on the input:</dd>
+        <ul>
+            <li>If a preset ID is provided as input, the node does not output anything.</li>
+            <li>If an empty or non-integer payload is provided, the node outputs an array of available preset positions.</li>
+        </ul>
+    </dl>
+    <p>If the node queries the device for available preset positions, the response is returned in the payload as an array of preset data objects.</p>
+</script>
