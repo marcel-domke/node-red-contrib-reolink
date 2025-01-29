@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 module.exports = function (RED) {
-    function ReolinkLightNode(config) {
+    function ReolinkIrLightNode(config) {
         RED.nodes.createNode(this, config);
 
         const node = this;
@@ -26,27 +26,23 @@ module.exports = function (RED) {
         // Fetch data and send to output
         async function queryStates() {
             try {
-                requestBody = JSON.stringify([
+                let requestBody = JSON.stringify([
                     {
-                        "cmd": "GetWhiteLed",
-                        "action": 0,
-                        "param": {
-                            "channel": 0
-                        }
+                        "cmd": "GetIrLights",
                     },
                 ]);
-                const data = await server.queryCommand("GetWhiteLed", requestBody);
+                const data = await server.queryCommand("GetIrLights", requestBody);
                 if (data) {
-                    ledState = data[0].value.WhiteLed.state;
+                    ledState = data[0].value.IrLights.state;
                     if (ledState != node.lastState) {
                         node.send({
-                            payload: (ledState == 1 ? true : false)
+                            payload: ledState
                         });
                         node.lastState = ledState
                         node.status({
                             fill: server.connectionStatus.fill,
                             shape: server.connectionStatus.shape,
-                            text: server.connectionStatus.text + " | " + (ledState == 1 ? "On" : "Off")
+                            text: server.connectionStatus.text + " | " + ledState
                         });
                     }
                 }
@@ -67,20 +63,21 @@ module.exports = function (RED) {
         queryStates();
 
         node.on('input', async function (msg) {
-            if (msg.payload == true || msg.payload == false) {
+            if (msg.payload == "Auto" || msg.payload == "Off") {
                 try {
-                    requestBody = JSON.stringify([
+                    let requestBody = JSON.stringify([
                         {
-                            "cmd": "SetWhiteLed",
+                            "cmd": "SetIrLights",
+			    "action" : 0,
                             "param": {
-                                "WhiteLed": {
-                                    "state": msg.payload == true ? 1 : 0,
-                                    "channel": 0
+                                "IrLights": {
+                                    "channel": 0,
+                                    "state": msg.payload
                                 }
                             }
                         },
                     ]);
-                    await server.queryCommand("SetWhiteLed", requestBody);
+                    await server.queryCommand("SetIrLights", requestBody);
                 } catch (error) {
                     console.warn("Error during query: ", error.message);
                     node.status({ fill: "red", shape: "ring", text: `Error: Send failed` });
@@ -97,5 +94,5 @@ module.exports = function (RED) {
         });
     }
 
-    RED.nodes.registerType("reolink-light", ReolinkLightNode);
+    RED.nodes.registerType("reolink-ir-light", ReolinkIrLightNode);
 };

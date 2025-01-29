@@ -1,2 +1,4 @@
 ### Batch ###
 *.bat
+*~
+*-lock.json

@@ -17,9 +17,9 @@ limitations under the License.
 
 <!-- Node Definition -->
 <script type="text/javascript">
-    RED.nodes.registerType('reolink-light', {
+    RED.nodes.registerType('reolink-ir-light', {
         category: 'Reolink',
-        color: '#c0c0c0',
+        color: '#c0c0ff',
         defaults: {
             name: { value: "" },
             server: { value: "", type: "reolink-device", required: true }
@@ -28,16 +28,16 @@ limitations under the License.
         outputs: 1,
         icon: "font-awesome/fa-lightbulb-o",
         label: function () {
-            return this.name || "Reolink Light";
+            return this.name || "Reolink IR Light";
         },
         paletteLabel: function () {
-            return "Light";
+            return "IR Light";
         }
     });
 </script>
 
 <!-- Edit Template -->
-<script type="text/html" data-template-name="reolink-light">
+<script type="text/html" data-template-name="reolink-ir-light">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Node name">
@@ -49,31 +49,31 @@ limitations under the License.
 </script>
 
 <!-- Help Text -->
-<script type="text/html" data-help-name="reolink-light">
-    <p>The <b>Reolink Light</b> node allows you to control and monitor the state of the white LED light on a Reolink device.</p>
+<script type="text/html" data-help-name="reolink-ir-light">
+    <p>The <b>Reolink IR Light</b> node allows you to control and monitor the mode of the IR (infrared) LED light on a Reolink device.</p>
 
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dt>payload</dt>
-        <dd>A boolean value to control the state of the white LED light:</dd>
+        <dd>A boolean value to control the mode of the IR LED light:</dd>
         <ul>
-            <li><code>true</code>: Turns the white LED light ON.</li>
-            <li><code>false</code>: Turns the white LED light OFF.</li>
+	    <li><code>"Auto"</code>: Switches the IR lights mode to AUTO (IR lights will automatically turn on in dim light and turn off when there is sufficient lighting).</li>
+            <li><code>"Off"</code>: Switches the IR light to always OFF.</li>
         </ul>
     </dl>
-    <p>When an input message with a boolean payload (true or false) is received, the node will send the corresponding command to the Reolink device to turn the white LED light ON or OFF.</p>
+    <p>When an input message with a boolean payload (true or false) is received, the node will send the corresponding command to the Reolink device to turn the IR LED light ON or OFF.</p>
 
     <h3>Outputs</h3>
     <dl class="message-properties">
         <dt>payload</dt>
-        <dd>A boolean value indicating the state of the white LED light:</dd>
+        <dd>A boolean value indicating the mode of the IR LED light:</dd>
         <ul>
-            <li><code>true</code>: The white LED light is ON.</li>
-            <li><code>false</code>: The white LED light is OFF.</li>
+            <li><code>"Auto"</code>: The IR lights mode is AUTO (IR lights will automatically turn on in dim light and turn off when there is sufficient lighting).</li>
+            <li><code>"Off"</code>: The IR LED light is always OFF.</li>
         </ul>
     </dl>
-    <p>The node periodically queries the Reolink device for the current state of the white LED light. If the state changes, it emits the updated state (true for ON, false for OFF) as the message payload.</p>
+    <p>The node periodically queries the Reolink device for the current mode of the IR LED light. If the mode changes, it emits the updated mode ("Auto" or "Off") as the message payload.</p>
 
     <h3>Details</h3>
-    <p>This node runs a query every 2 seconds to monitor the white LED light's state. You can also control the light by sending input messages with boolean values to toggle the light's state.</p>
+    <p>This node runs a query every 2 seconds to monitor the IR LED light's mode. You can also control the light by sending input messages with string values to toggle the light's mode.</p>
 </script>
