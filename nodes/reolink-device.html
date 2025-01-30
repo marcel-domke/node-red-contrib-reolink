@@ -23,7 +23,9 @@ limitations under the License.
             name: { value: "" },
             ip: { value: "", required: true },
             user: { value: "admin", required: true },
-            pass: { value: "", required: true }
+            pass: { value: "", required: true },
+            https: { value: false },
+            disableCertVerification: { value: false }
         },
 
         label: function () {
@@ -34,6 +36,8 @@ limitations under the License.
             $('#node-input-name').val(this.name);
             $('#node-input-ip').val(this.ip);
             $('#node-input-user').val(this.user);
+            $('#node-input-https').prop('checked', this.https);
+            $('#node-input-disableCertVerification').prop('checked', this.disableCertVerification);
         },
 
         oneditsave: function () {
@@ -41,6 +45,8 @@ limitations under the License.
             this.ip = $('#node-input-ip').val();
             this.user = $('#node-input-user').val();
             this.pass = $('#node-input-pass').val();
+            this.https = $('#node-input-https').prop('checked');
+            this.disableCertVerification = $('#node-input-disableCertVerification').prop('checked');
         }
 
     });
@@ -64,11 +70,21 @@ limitations under the License.
         <label for="node-input-pass"><i class="fa fa-key"></i> Password</label>
         <input type="password" id="node-input-pass" placeholder="Password" autocomplete="new-password">
     </div>
+    <div class="form-row">
+        <label for="node-input-https"><i class="fa fa-lock"></i> HTTPS</label>
+        <input type="checkbox" id="node-input-https">
+        <br>Use HTTPS instead of HTTP. (Recommended)
+    </div>
+    <div class="form-row">
+        <label for="node-input-disableCertVerification"><i class="fa fa-lock"></i> Self Signed</label>
+        <input type="checkbox" id="node-input-disableCertVerification">
+        <br>Disables the certificate verification. For self signed certificates and testing purposes.
+    </div>
     <hr>
     <div class="form-row">
         <i class="fa fa-exclamation-triangle" style="color:orange;"></i> 
-        Ensure that HTTP is activated. <br>
+        Ensure that HTTP / HTTPS is activated in the camera settings. <br>
         <i class="fa fa-exclamation-triangle" style="color:orange;"></i>
-        Using HTTP is not secure, and it is recommended to only use it in a trusted home network.
+        Use HTTP only in a trusted home network.
     </div>
 </script>

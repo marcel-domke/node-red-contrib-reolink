@@ -14,9 +14,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-// Allow self signed certificate
-//process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-
 module.exports = function (RED) {
     function ReolinkDeviceNode(config) {
         RED.nodes.createNode(this, config);
@@ -29,13 +26,18 @@ module.exports = function (RED) {
         node.tokenRenewTimeout = null;
         node.connectionStatus = { fill: "yellow", shape: "ring", text: `Initializing...` };
         node.ability = null;
+        node.urlPrefix = config.https == true ? "https" : "http";
 
+        // Disable certificate verification if activated
+        if(config.disableCertVerification == true){
+            process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+        }
 
         // Fetch specific data
         async function queryCommand(command, requestBody = null) {
             if (node.token != null) {
                 try {
-                    const response = await fetch(`http://${node.ip}/api.cgi?cmd=${command}&token=${node.token}`, {
+                    const response = await fetch(`${node.urlPrefix}://${node.ip}/api.cgi?cmd=${command}&token=${node.token}`, {
                         method: "POST",
                         body: requestBody,
                         headers: { "Content-Type": "application/json" },
@@ -52,7 +54,7 @@ module.exports = function (RED) {
 
         // Fetch and save system ability once
         async function queryAbility() {
-            if (node.ability == null){
+            if (node.ability == null) {
                 try {
                     requestBody = JSON.stringify([
                         {
@@ -76,7 +78,7 @@ module.exports = function (RED) {
         // Request the token
         async function requestToken() {
             try {
-                const response = await fetch(`http://${node.ip}/api.cgi?cmd=Login`, {
+                const response = await fetch(`${node.urlPrefix}://${node.ip}/api.cgi?cmd=Login`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify([
