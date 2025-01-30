@@ -1,14 +1,14 @@
 {
-  "name": "@r375ch/node-red-contrib-reolink",
-  "version": "1.2.1",
-  "description": "Fork of @marcel-domke/node-red-contrib-reolink. A unofficial Node-RED node for receiving real-time data and controlling your Reolink camera.",
+  "name": "@marcel-domke/node-red-contrib-reolink",
+  "version": "1.3.0",
+  "description": "A unofficial Node-RED node for receiving real-time data and controlling your Reolink camera.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/r375ch/node-red-contrib-reolink.git"
+    "url": "git+https://github.com/marcel-domke/node-red-contrib-reolink.git"
   },
   "keywords": [
     "reolink",
@@ -16,13 +16,23 @@
     "node-red",
     "surveillance"
   ],
-    "author": "r375ch",
+  "author": "Marcel Domke",
   "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/marcel-domke/node-red-contrib-reolink/issues"
+  },
   "homepage": "https://github.com/marcel-domke/node-red-contrib-reolink#readme",
   "node-red": {
     "version": ">=1.3.7",
     "nodes": {
-      "reolink-ir-light": "nodes/reolink-ir-light.js"
+      "reolink-device": "nodes/reolink-device.js",
+      "reolink-ai-event": "nodes/reolink-ai-event.js",
+      "reolink-md-event": "nodes/reolink-md-event.js",
+      "reolink-light": "nodes/reolink-light.js",
+      "reolink-alarm": "nodes/reolink-alarm.js",
+      "reolink-siren": "nodes/reolink-siren.js",
+      "reolink-ptz-preset": "nodes/reolink-ptz-preset.js",
+      "reolink-ptz-patrol": "nodes/reolink-ptz-patrol.js"
     }
   },
   "engines": {
