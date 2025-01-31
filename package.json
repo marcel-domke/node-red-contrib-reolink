@@ -32,7 +32,8 @@
       "reolink-alarm": "nodes/reolink-alarm.js",
       "reolink-siren": "nodes/reolink-siren.js",
       "reolink-ptz-preset": "nodes/reolink-ptz-preset.js",
-      "reolink-ptz-patrol": "nodes/reolink-ptz-patrol.js"
+      "reolink-ptz-patrol": "nodes/reolink-ptz-patrol.js",
+      "reolink-ir-light": "nodes/reolink-ir-light.js"
     }
   },
   "engines": {

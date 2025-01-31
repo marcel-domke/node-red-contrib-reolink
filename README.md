@@ -31,6 +31,9 @@ The **Reolink Device** node allows you to configure the connection to your Reoli
 7. **Reolink PTZ Preset Node**  
    This node controls and queries the PTZ (Pan-Tilt-Zoom) preset positions on a Reolink device. You can either set the camera to a specific preset position or retrieve a list of available preset positions from the device.  
 
+8. **Reolink IR Light Node**  
+   This node allows you to control and monitor the mode of the IR (infrared) LED light on a Reolink device.
+
 ## Compatibility
 
 Tested with the following Reolink cameras:
@@ -38,7 +41,7 @@ Tested with the following Reolink cameras:
 - Reolink RLC-1224A
 - Reolink CX410
 
-But this integration should work with all Reolink cameras that support the HTTP API.
+But this integration should work with all Reolink cameras that support the HTTP / HTTPS API.
 
 ## License
 
