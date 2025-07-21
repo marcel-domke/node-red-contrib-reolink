@@ -1,5 +1,5 @@
 /*
-Copyright 2024 Marcel Domke
+Copyright 2025 Marcel Domke
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -40,7 +40,8 @@ module.exports = function (RED) {
                     ledState = data[0].value.WhiteLed.state;
                     if (ledState != node.lastState) {
                         node.send({
-                            payload: (ledState == 1 ? true : false)
+                            payload: (ledState == 1 ? true : false),
+                            topic: config.topic || server.name
                         });
                         node.lastState = ledState
                         node.status({

@@ -1,5 +1,5 @@
 <!--
-Copyright 2024 Marcel Domke
+Copyright 2025 Marcel Domke
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@ limitations under the License.
         color: '#70889e',
         defaults: {
             name: { value: "" },
+            topic: { value: "" },
             server: { value: "", type: "reolink-device", required: true }
         },
         inputs: 0,
@@ -43,6 +44,10 @@ limitations under the License.
         <input type="text" id="node-input-name" placeholder="Node name">
     </div>
     <div class="form-row">
+        <label for="node-input-topic"><i class="fa fa-tag"></i> Topic</label>
+        <input type="text" id="node-input-topic" placeholder="">
+    </div>
+    <div class="form-row">
         <label for="node-input-server"><i class="fa fa-wrench"></i> Device</label>
         <select id="node-input-server"></select>
     </div>
@@ -58,6 +63,8 @@ limitations under the License.
         <ul>
             <li><code>state</code>: The motion detection state. A value of 0 indicates no motion detected, while 1 indicates motion detected.</li>
         </ul>
+        <dt>topic</dt>
+        <dd>The configured topic, or the server name if not set.</dd>
     </dl>
     <h3>Details</h3>
     <p>This node periodically queries the Reolink device for motion detection, emitting the results as the message payload.</p>

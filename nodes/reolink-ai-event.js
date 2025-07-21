@@ -1,5 +1,5 @@
 /*
-Copyright 2024 Marcel Domke
+Copyright 2025 Marcel Domke
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -29,7 +29,8 @@ module.exports = function (RED) {
                 const aiStates = await server.queryCommand("GetAiState");
                 if (aiStates && JSON.stringify(aiStates) !== JSON.stringify(node.lastAiStates)) {
                     node.send({
-                        payload: aiStates
+                        payload: aiStates,
+                        topic: config.topic || server.name
                     });
                     node.lastAiStates = aiStates;
                 }

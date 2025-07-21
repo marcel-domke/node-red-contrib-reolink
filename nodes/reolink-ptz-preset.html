@@ -1,5 +1,5 @@
 <!--
-Copyright 2024 Marcel Domke
+Copyright 2025 Marcel Domke
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@ limitations under the License.
         color: '#3fa8f2',
         defaults: {
             name: { value: "" },
+            topic: { value: "" },
             server: { value: "", type: "reolink-device", required: true }
         },
         inputs: 1,
@@ -41,6 +42,10 @@ limitations under the License.
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Node name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-topic"><i class="fa fa-tag"></i> Topic</label>
+        <input type="text" id="node-input-topic" placeholder="">
     </div>
     <div class="form-row">
         <label for="node-input-server"><i class="fa fa-wrench"></i> Device</label>
@@ -71,6 +76,8 @@ limitations under the License.
             <li>If a preset ID is provided as input, the node does not output anything.</li>
             <li>If an empty or non-integer payload is provided, the node outputs an array of available preset positions.</li>
         </ul>
+        <dt>topic</dt>
+        <dd>The configured topic, or the server name if not set.</dd>
     </dl>
     <p>If the node queries the device for available preset positions, the response is returned in the payload as an array of preset data objects.</p>
 </script>

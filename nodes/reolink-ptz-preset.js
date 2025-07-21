@@ -1,5 +1,5 @@
 /*
-Copyright 2024 Marcel Domke
+Copyright 2025 Marcel Domke
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -75,7 +75,10 @@ module.exports = function (RED) {
                     ]);
                     const data = await server.queryCommand("GetPtzPreset", requestBody);
                     if (data) {
-                        node.send({ "payload": data[0].value.PtzPreset });
+                        node.send({ 
+                            payload: data[0].value.PtzPreset,
+                            topic: config.topic || server.name 
+                        });
                     }
                 } catch (error) {
                     console.warn("Error during query: ", error.message);

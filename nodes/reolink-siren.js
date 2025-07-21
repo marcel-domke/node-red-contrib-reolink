@@ -1,5 +1,5 @@
 /*
-Copyright 2024 Marcel Domke
+Copyright 2025 Marcel Domke
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -33,7 +33,8 @@ module.exports = function (RED) {
                             sirenState = data[0].value.Audio.enable;
                             if (sirenState != node.lastState) {
                                 node.send({
-                                    payload: (sirenState == 1 ? true : false)
+                                    payload: (sirenState == 1 ? true : false),
+                                    topic: config.topic || server.name
                                 });
                                 node.lastState = sirenState;
                                 node.status({
