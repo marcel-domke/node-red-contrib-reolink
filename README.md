@@ -40,6 +40,7 @@ Tested with the following Reolink cameras:
 - Reolink RLC-823S2
 - Reolink RLC-1224A
 - Reolink CX410
+- Reolink CX810 (by k5map)
 
 But this integration should work with all Reolink cameras that support the HTTP / HTTPS API.
 
