@@ -5,7 +5,7 @@
         "z": "129ed4c56b411c49",
         "name": "",
         "server": "",
-        "x": 480,
+        "x": 360,
         "y": 480,
         "wires": [
             [
@@ -25,7 +25,7 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 720,
+        "x": 600,
         "y": 480,
         "wires": []
     },
@@ -50,7 +50,7 @@
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
-        "x": 270,
+        "x": 150,
         "y": 460,
         "wires": [
             [
@@ -79,7 +79,7 @@
         "topic": "",
         "payload": "false",
         "payloadType": "bool",
-        "x": 270,
+        "x": 150,
         "y": 500,
         "wires": [
             [
@@ -108,8 +108,8 @@
         "topic": "",
         "payload": "false",
         "payloadType": "bool",
-        "x": 270,
-        "y": 300,
+        "x": 150,
+        "y": 200,
         "wires": [
             [
                 "91e90ba2b02173f7"
@@ -137,8 +137,8 @@
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
-        "x": 270,
-        "y": 340,
+        "x": 150,
+        "y": 240,
         "wires": [
             [
                 "91e90ba2b02173f7"
@@ -166,7 +166,7 @@
         "topic": "",
         "payload": "1",
         "payloadType": "num",
-        "x": 270,
+        "x": 150,
         "y": 400,
         "wires": [
             [
@@ -186,8 +186,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 720,
-        "y": 160,
+        "x": 600,
+        "y": 60,
         "wires": []
     },
     {
@@ -202,8 +202,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 720,
-        "y": 240,
+        "x": 600,
+        "y": 140,
         "wires": []
     },
     {
@@ -218,8 +218,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 720,
-        "y": 320,
+        "x": 600,
+        "y": 220,
         "wires": []
     },
     {
@@ -228,8 +228,8 @@
         "z": "129ed4c56b411c49",
         "name": "",
         "server": "",
-        "x": 500,
-        "y": 160,
+        "x": 380,
+        "y": 60,
         "wires": [
             [
                 "7d3ae8172feef255"
@@ -242,8 +242,8 @@
         "z": "129ed4c56b411c49",
         "name": "",
         "server": "",
-        "x": 480,
-        "y": 240,
+        "x": 360,
+        "y": 140,
         "wires": [
             [
                 "653f68275af5c8f7"
@@ -256,8 +256,8 @@
         "z": "129ed4c56b411c49",
         "name": "",
         "server": "",
-        "x": 470,
-        "y": 320,
+        "x": 350,
+        "y": 220,
         "wires": [
             [
                 "753d58265c9a18ca"
@@ -270,7 +270,7 @@
         "z": "129ed4c56b411c49",
         "name": "",
         "server": "",
-        "x": 480,
+        "x": 360,
         "y": 400,
         "wires": []
     },
@@ -280,7 +280,7 @@
         "z": "129ed4c56b411c49",
         "name": "",
         "server": "",
-        "x": 490,
+        "x": 370,
         "y": 760,
         "wires": [
             [
@@ -294,11 +294,9 @@
         "z": "129ed4c56b411c49",
         "name": "",
         "server": "",
-        "x": 490,
+        "x": 370,
         "y": 600,
-        "wires": [
-            []
-        ]
+        "wires": []
     },
     {
         "id": "ce441d901637b7e3",
@@ -321,7 +319,7 @@
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
-        "x": 270,
+        "x": 150,
         "y": 580,
         "wires": [
             [
@@ -350,7 +348,7 @@
         "topic": "",
         "payload": "false",
         "payloadType": "bool",
-        "x": 270,
+        "x": 150,
         "y": 620,
         "wires": [
             [
@@ -379,7 +377,7 @@
         "topic": "",
         "payload": "0",
         "payloadType": "num",
-        "x": 270,
+        "x": 150,
         "y": 760,
         "wires": [
             [
@@ -408,7 +406,7 @@
         "topic": "",
         "payload": "1",
         "payloadType": "num",
-        "x": 270,
+        "x": 150,
         "y": 800,
         "wires": [
             [
@@ -437,7 +435,7 @@
         "topic": "",
         "payload": "getPresets",
         "payloadType": "str",
-        "x": 280,
+        "x": 160,
         "y": 720,
         "wires": [
             [
@@ -457,8 +455,96 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 720,
+        "x": 600,
         "y": 760,
+        "wires": []
+    },
+    {
+        "id": "07f7cf1404076404",
+        "type": "reolink-ir-light",
+        "z": "129ed4c56b411c49",
+        "name": "",
+        "server": "",
+        "x": 360,
+        "y": 320,
+        "wires": [
+            [
+                "d96c8560bc95cd76"
+            ]
+        ]
+    },
+    {
+        "id": "c05f5a8f59c8c301",
+        "type": "inject",
+        "z": "129ed4c56b411c49",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 150,
+        "y": 300,
+        "wires": [
+            [
+                "07f7cf1404076404"
+            ]
+        ]
+    },
+    {
+        "id": "8f4785316f72eb9f",
+        "type": "inject",
+        "z": "129ed4c56b411c49",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 150,
+        "y": 340,
+        "wires": [
+            [
+                "07f7cf1404076404"
+            ]
+        ]
+    },
+    {
+        "id": "d96c8560bc95cd76",
+        "type": "debug",
+        "z": "129ed4c56b411c49",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 320,
         "wires": []
     }
 ]
