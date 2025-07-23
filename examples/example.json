@@ -2,11 +2,11 @@
     {
         "id": "04e94ab435b12e91",
         "type": "reolink-siren",
-        "z": "129ed4c56b411c49",
+        "z": "825daf4816a87de8",
         "name": "",
         "server": "",
-        "x": 360,
-        "y": 480,
+        "x": 720,
+        "y": 560,
         "wires": [
             [
                 "0a57923cee060766"
@@ -16,7 +16,7 @@
     {
         "id": "0a57923cee060766",
         "type": "debug",
-        "z": "129ed4c56b411c49",
+        "z": "825daf4816a87de8",
         "name": "debug 1",
         "active": true,
         "tosidebar": true,
@@ -25,14 +25,14 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 600,
-        "y": 480,
+        "x": 960,
+        "y": 560,
         "wires": []
     },
     {
         "id": "4f5fc6f767ed897e",
         "type": "inject",
-        "z": "129ed4c56b411c49",
+        "z": "825daf4816a87de8",
         "name": "",
         "props": [
             {
@@ -50,8 +50,8 @@
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
-        "x": 150,
-        "y": 460,
+        "x": 510,
+        "y": 540,
         "wires": [
             [
                 "04e94ab435b12e91"
@@ -61,7 +61,7 @@
     {
         "id": "6c8cb785b1112b8d",
         "type": "inject",
-        "z": "129ed4c56b411c49",
+        "z": "825daf4816a87de8",
         "name": "",
         "props": [
             {
@@ -79,8 +79,8 @@
         "topic": "",
         "payload": "false",
         "payloadType": "bool",
-        "x": 150,
-        "y": 500,
+        "x": 510,
+        "y": 580,
         "wires": [
             [
                 "04e94ab435b12e91"
@@ -90,7 +90,7 @@
     {
         "id": "19a980f6a075e1a9",
         "type": "inject",
-        "z": "129ed4c56b411c49",
+        "z": "825daf4816a87de8",
         "name": "",
         "props": [
             {
@@ -108,8 +108,8 @@
         "topic": "",
         "payload": "false",
         "payloadType": "bool",
-        "x": 150,
-        "y": 200,
+        "x": 510,
+        "y": 280,
         "wires": [
             [
                 "91e90ba2b02173f7"
@@ -119,7 +119,7 @@
     {
         "id": "917a847d39110375",
         "type": "inject",
-        "z": "129ed4c56b411c49",
+        "z": "825daf4816a87de8",
         "name": "",
         "props": [
             {
@@ -137,8 +137,8 @@
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
-        "x": 150,
-        "y": 240,
+        "x": 510,
+        "y": 320,
         "wires": [
             [
                 "91e90ba2b02173f7"
@@ -148,7 +148,7 @@
     {
         "id": "3f5f6cc97b5bcf6f",
         "type": "inject",
-        "z": "129ed4c56b411c49",
+        "z": "825daf4816a87de8",
         "name": "",
         "props": [
             {
@@ -166,8 +166,8 @@
         "topic": "",
         "payload": "1",
         "payloadType": "num",
-        "x": 150,
-        "y": 400,
+        "x": 510,
+        "y": 480,
         "wires": [
             [
                 "7eaba14b868e22c6"
@@ -177,7 +177,7 @@
     {
         "id": "7d3ae8172feef255",
         "type": "debug",
-        "z": "129ed4c56b411c49",
+        "z": "825daf4816a87de8",
         "name": "debug 1",
         "active": true,
         "tosidebar": true,
@@ -186,14 +186,14 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 600,
+        "x": 970,
         "y": 60,
         "wires": []
     },
     {
         "id": "653f68275af5c8f7",
         "type": "debug",
-        "z": "129ed4c56b411c49",
+        "z": "825daf4816a87de8",
         "name": "debug 2",
         "active": true,
         "tosidebar": true,
@@ -202,14 +202,14 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 600,
+        "x": 970,
         "y": 140,
         "wires": []
     },
     {
         "id": "753d58265c9a18ca",
         "type": "debug",
-        "z": "129ed4c56b411c49",
+        "z": "825daf4816a87de8",
         "name": "debug 3",
         "active": true,
         "tosidebar": true,
@@ -218,17 +218,17 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 600,
-        "y": 220,
+        "x": 960,
+        "y": 300,
         "wires": []
     },
     {
         "id": "ea26d6b68fd9b29d",
         "type": "reolink-md-event",
-        "z": "129ed4c56b411c49",
+        "z": "825daf4816a87de8",
         "name": "",
         "server": "",
-        "x": 380,
+        "x": 740,
         "y": 60,
         "wires": [
             [
@@ -239,10 +239,10 @@
     {
         "id": "4b98295b0bc87c4b",
         "type": "reolink-ai-event",
-        "z": "129ed4c56b411c49",
+        "z": "825daf4816a87de8",
         "name": "",
         "server": "",
-        "x": 360,
+        "x": 720,
         "y": 140,
         "wires": [
             [
@@ -253,11 +253,11 @@
     {
         "id": "91e90ba2b02173f7",
         "type": "reolink-light",
-        "z": "129ed4c56b411c49",
+        "z": "825daf4816a87de8",
         "name": "",
         "server": "",
-        "x": 350,
-        "y": 220,
+        "x": 710,
+        "y": 300,
         "wires": [
             [
                 "753d58265c9a18ca"
@@ -267,21 +267,21 @@
     {
         "id": "7eaba14b868e22c6",
         "type": "reolink-alarm",
-        "z": "129ed4c56b411c49",
+        "z": "825daf4816a87de8",
         "name": "",
         "server": "",
-        "x": 360,
-        "y": 400,
+        "x": 720,
+        "y": 480,
         "wires": []
     },
     {
         "id": "876ca7efc1b6d28b",
         "type": "reolink-ptz-preset",
-        "z": "129ed4c56b411c49",
+        "z": "825daf4816a87de8",
         "name": "",
         "server": "",
-        "x": 370,
-        "y": 760,
+        "x": 730,
+        "y": 840,
         "wires": [
             [
                 "49d84190303fb3f0"
@@ -291,17 +291,17 @@
     {
         "id": "4c336e0d2a2ab840",
         "type": "reolink-ptz-patrol",
-        "z": "129ed4c56b411c49",
+        "z": "825daf4816a87de8",
         "name": "",
         "server": "",
-        "x": 370,
-        "y": 600,
+        "x": 730,
+        "y": 680,
         "wires": []
     },
     {
         "id": "ce441d901637b7e3",
         "type": "inject",
-        "z": "129ed4c56b411c49",
+        "z": "825daf4816a87de8",
         "name": "",
         "props": [
             {
@@ -319,8 +319,8 @@
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
-        "x": 150,
-        "y": 580,
+        "x": 510,
+        "y": 660,
         "wires": [
             [
                 "4c336e0d2a2ab840"
@@ -330,7 +330,7 @@
     {
         "id": "1ab985d450bcef44",
         "type": "inject",
-        "z": "129ed4c56b411c49",
+        "z": "825daf4816a87de8",
         "name": "",
         "props": [
             {
@@ -348,8 +348,8 @@
         "topic": "",
         "payload": "false",
         "payloadType": "bool",
-        "x": 150,
-        "y": 620,
+        "x": 510,
+        "y": 700,
         "wires": [
             [
                 "4c336e0d2a2ab840"
@@ -359,7 +359,7 @@
     {
         "id": "c77378578afb4e0d",
         "type": "inject",
-        "z": "129ed4c56b411c49",
+        "z": "825daf4816a87de8",
         "name": "",
         "props": [
             {
@@ -377,8 +377,8 @@
         "topic": "",
         "payload": "0",
         "payloadType": "num",
-        "x": 150,
-        "y": 760,
+        "x": 510,
+        "y": 840,
         "wires": [
             [
                 "876ca7efc1b6d28b"
@@ -388,7 +388,7 @@
     {
         "id": "ed32c01d93ede652",
         "type": "inject",
-        "z": "129ed4c56b411c49",
+        "z": "825daf4816a87de8",
         "name": "",
         "props": [
             {
@@ -406,8 +406,8 @@
         "topic": "",
         "payload": "1",
         "payloadType": "num",
-        "x": 150,
-        "y": 800,
+        "x": 510,
+        "y": 880,
         "wires": [
             [
                 "876ca7efc1b6d28b"
@@ -417,7 +417,7 @@
     {
         "id": "62931787e68e8bc8",
         "type": "inject",
-        "z": "129ed4c56b411c49",
+        "z": "825daf4816a87de8",
         "name": "",
         "props": [
             {
@@ -435,8 +435,8 @@
         "topic": "",
         "payload": "getPresets",
         "payloadType": "str",
-        "x": 160,
-        "y": 720,
+        "x": 520,
+        "y": 800,
         "wires": [
             [
                 "876ca7efc1b6d28b"
@@ -446,7 +446,7 @@
     {
         "id": "49d84190303fb3f0",
         "type": "debug",
-        "z": "129ed4c56b411c49",
+        "z": "825daf4816a87de8",
         "name": "debug 4",
         "active": true,
         "tosidebar": true,
@@ -455,18 +455,18 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 600,
-        "y": 760,
+        "x": 960,
+        "y": 840,
         "wires": []
     },
     {
         "id": "07f7cf1404076404",
         "type": "reolink-ir-light",
-        "z": "129ed4c56b411c49",
+        "z": "825daf4816a87de8",
         "name": "",
         "server": "",
-        "x": 360,
-        "y": 320,
+        "x": 720,
+        "y": 400,
         "wires": [
             [
                 "d96c8560bc95cd76"
@@ -476,7 +476,7 @@
     {
         "id": "c05f5a8f59c8c301",
         "type": "inject",
-        "z": "129ed4c56b411c49",
+        "z": "825daf4816a87de8",
         "name": "",
         "props": [
             {
@@ -494,8 +494,8 @@
         "topic": "",
         "payload": "false",
         "payloadType": "bool",
-        "x": 150,
-        "y": 300,
+        "x": 510,
+        "y": 380,
         "wires": [
             [
                 "07f7cf1404076404"
@@ -505,7 +505,7 @@
     {
         "id": "8f4785316f72eb9f",
         "type": "inject",
-        "z": "129ed4c56b411c49",
+        "z": "825daf4816a87de8",
         "name": "",
         "props": [
             {
@@ -523,8 +523,8 @@
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
-        "x": 150,
-        "y": 340,
+        "x": 510,
+        "y": 420,
         "wires": [
             [
                 "07f7cf1404076404"
@@ -534,7 +534,7 @@
     {
         "id": "d96c8560bc95cd76",
         "type": "debug",
-        "z": "129ed4c56b411c49",
+        "z": "825daf4816a87de8",
         "name": "debug 5",
         "active": true,
         "tosidebar": true,
@@ -543,8 +543,39 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 600,
-        "y": 320,
+        "x": 960,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "42d758733ecf61d8",
+        "type": "reolink-event",
+        "z": "825daf4816a87de8",
+        "name": "",
+        "topic": "",
+        "server": "",
+        "x": 710,
+        "y": 220,
+        "wires": [
+            [
+                "4a3b84dedb66c315"
+            ]
+        ]
+    },
+    {
+        "id": "4a3b84dedb66c315",
+        "type": "debug",
+        "z": "825daf4816a87de8",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 220,
         "wires": []
     }
 ]
