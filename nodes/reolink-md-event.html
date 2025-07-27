@@ -23,6 +23,7 @@ limitations under the License.
         defaults: {
             name: { value: "" },
             topic: { value: "" },
+            interval: { value: 2.0, required: true },
             server: { value: "", type: "reolink-device", required: true }
         },
         inputs: 0,
@@ -48,6 +49,11 @@ limitations under the License.
         <input type="text" id="node-input-topic" placeholder="">
     </div>
     <div class="form-row">
+        <label for="node-input-interval"><i class="fa fa-clock-o"></i> Interval [s]</label>
+        <input type="number" id="node-input-interval" min="0.1" step="0.1" placeholder="Default: 2">
+        <br> Decreasing this will result in faster updates but will increase network bandwidth usage and load.
+    </div>
+    <div class="form-row">
         <label for="node-input-server"><i class="fa fa-wrench"></i> Device</label>
         <select id="node-input-server"></select>
     </div>
@@ -68,5 +74,4 @@ limitations under the License.
     </dl>
     <h3>Details</h3>
     <p>This node periodically queries the Reolink device for motion detection, emitting the results as the message payload.</p>
-    <p>The query runs every 2 seconds and includes motion detection event data.</p>
 </script>

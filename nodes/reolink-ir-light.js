@@ -57,7 +57,7 @@ module.exports = function (RED) {
             }
 
             // Set timeout to call queryStates again
-            node.queryTimeout = setTimeout(queryStates, 2000);
+            node.queryTimeout = setTimeout(queryStates, config.interval * 1000 || 2000);
         }
 
         // Start first query
@@ -69,7 +69,7 @@ module.exports = function (RED) {
                     let requestBody = JSON.stringify([
                         {
                             "cmd": "SetIrLights",
-			    "action" : 0,
+                            "action": 0,
                             "param": {
                                 "IrLights": {
                                     "channel": 0,

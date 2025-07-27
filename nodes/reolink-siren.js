@@ -59,7 +59,7 @@ module.exports = function (RED) {
             }
 
             // Set timeout to call queryStates again
-            node.queryTimeout = setTimeout(queryStates, 3000);
+            node.queryTimeout = setTimeout(queryStates, config.interval * 1000 || 2000);
         }
 
         // Start first query

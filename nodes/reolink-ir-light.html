@@ -23,6 +23,7 @@ limitations under the License.
         defaults: {
             name: { value: "" },
             topic: { value: "" },
+            interval: { value: 2.0, required: true },
             server: { value: "", type: "reolink-device", required: true }
         },
         inputs: 1,
@@ -46,6 +47,11 @@ limitations under the License.
     <div class="form-row">
         <label for="node-input-topic"><i class="fa fa-tag"></i> Topic</label>
         <input type="text" id="node-input-topic" placeholder="">
+    </div>
+    <div class="form-row">
+        <label for="node-input-interval"><i class="fa fa-clock-o"></i> Interval [s]</label>
+        <input type="number" id="node-input-interval" min="0.1" step="0.1" placeholder="Default: 2">
+        <br> Decreasing this will result in faster updates but will increase network bandwidth usage and load.
     </div>
     <div class="form-row">
         <label for="node-input-server"><i class="fa fa-wrench"></i> Device</label>
@@ -80,7 +86,4 @@ limitations under the License.
         <dd>The configured topic, or the server name if not set.</dd>
     </dl>
     <p>The node periodically queries the Reolink device for the current mode of the IR LED light. If the mode changes, it emits the updated mode ("Auto" or "Off") as the message payload.</p>
-
-    <h3>Details</h3>
-    <p>This node runs a query every 2 seconds to monitor the IR LED light's mode. You can also control the light by sending input messages with string values to toggle the light's mode.</p>
 </script>
