@@ -1,6 +1,6 @@
 {
   "name": "@marcel-domke/node-red-contrib-reolink",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "A unofficial Node-RED node for receiving real-time data and controlling your Reolink camera.",
   "main": "index.js",
   "scripts": {
