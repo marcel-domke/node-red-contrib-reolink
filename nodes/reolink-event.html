@@ -30,10 +30,10 @@ limitations under the License.
         outputs: 1,
         icon: "font-awesome/fa-bullhorn",
         label: function () {
-            return this.name || "Reolink Event";
+            return this.name || "Reolink Doorbell Event";
         },
         paletteLabel: function () {
-            return "Event";
+            return "Doorbell Event";
         }
     });
 </script>
@@ -61,8 +61,19 @@ limitations under the License.
 
 <!-- Help Text -->
 <script type="text/html" data-help-name="reolink-event">
-    <p>The <b>Reolink Event</b> node allows you to retrieve events from a Reolink device.</p>
-
+    <p>The <b>Reolink Doorbell Event</b> node allows you to retrieve events from a Reolink doorbell.</p>
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>payload[0].value</dt>
+        <dd>An object containing the events:</dd>
+        <ul>
+            <li><code>ai</code>: Contains various AI events.</li>
+            <li><code>md</code>: Contains motion detection events</li>
+            <li><code>visitor</code>: Contains doorbell button events.</li>
+        </ul>
+        <dt>topic</dt>
+        <dd>The configured topic, or the server name if not set.</dd>
+    </dl>
     <h3>Details</h3>
     <p>This node periodically queries the Reolink device for events, emitting the results as the message payload.</p>
 </script>
