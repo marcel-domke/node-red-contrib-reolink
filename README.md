@@ -16,23 +16,28 @@ The **Reolink Device** node allows you to configure the connection to your Reoli
 2. **Reolink Motion Detection Node**  
    This node receives motion detection events from the camera.
 
-3. **Reolink Alarm Node**  
+3. **Reolink Doorbell Event Node**  
+   This node queries various events from a Reolink doorbell.
+
+4. **Reolink Alarm Node**  
    This node triggers an alarm on the camera.
 
-4. **Reolink Siren Node**  
+5. **Reolink Siren Node**  
    This node controls and monitors the state of the audio alarm (siren) on the camera. If activated the siren will sound when motion is detected.
 
-5. **Reolink LED Control Node**  
+6. **Reolink LED Control Node**  
    This node controls the white LED light of the camera and queries its status.
 
-6. **Reolink PTZ Patrol Node**  
+7. **Reolink IR Light Node**  
+   This node allows you to control and monitor the mode of the IR (infrared) LED light on a Reolink device.
+
+8. **Reolink PTZ Patrol Node**  
    This node allows you to control the PTZ (Pan-Tilt-Zoom) patrol function on a Reolink device. When activated, the camera will follow a pre-configured patrol pattern.  
 
-7. **Reolink PTZ Preset Node**  
+9. **Reolink PTZ Preset Node**  
    This node controls and queries the PTZ (Pan-Tilt-Zoom) preset positions on a Reolink device. You can either set the camera to a specific preset position or retrieve a list of available preset positions from the device.  
 
-8. **Reolink IR Light Node**  
-   This node allows you to control and monitor the mode of the IR (infrared) LED light on a Reolink device.
+
 
 ## Compatibility
 
@@ -41,6 +46,7 @@ Tested with the following Reolink cameras:
 - Reolink RLC-1224A
 - Reolink CX410
 - Reolink CX810 (by k5map)
+- Reolink Doorbell (by martin-g-it)
 
 But this integration should work with all Reolink cameras that support the HTTP / HTTPS API.
 
